@@ -1,11 +1,11 @@
 module.exports = Queue
 
 function Queue() {
-  this.head = [];
-  this.tail = [];
-  this.index = 0;
-  this.headLength = 0;
-  this.length = 0;
+  this.head = []
+  this.tail = []
+  this.index = 0
+  this.headLength = 0
+  this.length = 0
 }
 
 /**
@@ -17,25 +17,21 @@ function Queue() {
 Queue.prototype.shift = function () {
 	// swap head for tail
   if (this.index >= this.headLength) {
-    var t = this.head;
-    this.head = this.tail;
-    this.tail = t;
-    t.length = 0;
-    this.index = 0;
-    this.headLength = this.head.length;
-    if (!this.headLength) return;
+    var t = this.head
+    this.head = this.tail
+    this.tail = t
+    t.length = 0
+    this.index = 0
+    this.headLength = this.head.length
+    if (!this.headLength) return
   }
 
-  var value = this.head[this.index];
+  var value = this.head[this.index]
   // free the ref for GC
-  if (this.index < 0) {
-    delete this.head[this.index++];
-  } else {
-    this.head[this.index++] = null;
-  }
-  this.length--;
-  return value;
-};
+  this.head[this.index++] = null
+  this.length--
+  return value
+}
 
 /**
  * Insert a new item at the front of the queue.
@@ -45,10 +41,11 @@ Queue.prototype.shift = function () {
  */
 
 Queue.prototype.unshift = function (item) {
-  this.head[--this.index] = item;
-  this.length++;
-  return this;
-};
+	if (this.index === 0) this.head.unshift(item)
+	else this.head[--this.index] = item
+  this.length++
+  return this
+}
 
 /**
  * Push a new item on the end of the queue.
@@ -58,7 +55,7 @@ Queue.prototype.unshift = function (item) {
  */
 
 Queue.prototype.push = function (item) {
-  this.length++;
-  this.tail.push(item);
-  return this;
-};
+  this.length++
+  this.tail.push(item)
+  return this
+}
