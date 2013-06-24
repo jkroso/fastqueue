@@ -2,5 +2,18 @@
   "name": "fastqueue",
   "version": "0.1.0",
   "description": "A fast push/shift sync queue",
-  "main": "queue.js"
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/creationix/fastqueue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/creationix/fastqueue/issues"
+  },
+  "keywords": [
+    "queue"
+  ],
+  "author": "Tim Caswell",
+  "license": "MIT"
 }
