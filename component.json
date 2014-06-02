@@ -1,19 +1,9 @@
 {
-  "name": "fastqueue",
-  "repo": "jkroso/fastqueue",
-  "description": "A fast push/shift sync queue",
-  "version": "0.2.0",
-  "keywords": [
-    "queue"
-  ],
-  "dependencies": {},
-  "development": {
-    "visionmedia/mocha": "1.11.0",
-    "jkroso/serve": "1.4.1",
-    "chaijs/chai": "1.7.0"
-  },
-  "scripts": [
-    "index.js"
-  ],
-  "license": "MIT"
+	"name": "fastqueue",
+	"repo": "jkroso/fastqueue",
+	"description": "a fast queue",
+	"keywords": ["queue"],
+	"dependencies": {},
+	"scripts": ["index.js"],
+	"license": "MIT"
 }

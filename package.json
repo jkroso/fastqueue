@@ -3,17 +3,21 @@
   "version": "0.2.0",
   "description": "A fast push/shift sync queue",
   "dependencies": {},
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/creationix/fastqueue.git"
+  "devDependencies": {
+    "assert": "jkroso/assert",
+    "serve": "jkroso/serve",
+    "b": "vesln/b#3a16d17",
+    "hydro-html": "*",
+    "hydro-chai": "*",
+    "hydro-bdd": "*",
+    "hydro-dot": "*",
+    "hydro": "*",
+    "chai": "*",
+    "jsmd": "*"
   },
-  "bugs": {
-    "url": "https://github.com/creationix/fastqueue/issues"
-  },
-  "keywords": [
-    "queue"
-  ],
+  "repository": "git://github.com/creationix/fastqueue.git",
+  "bugs": "https://github.com/creationix/fastqueue/issues",
+  "keywords": ["queue"],
   "author": "Tim Caswell",
   "license": "MIT"
 }
