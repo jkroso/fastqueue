@@ -1,4 +1,3 @@
-module.exports = Queue
 
 function Queue(){
   this.head = []
@@ -10,12 +9,12 @@ function Queue(){
 
 /**
  * Get an item from the front of the queue
- * 
+ *
  * @return {x}
  */
 
 Queue.prototype.shift = function(){
-	// swap head for tail
+  // swap head for tail
   if (this.index >= this.headLength) {
     var t = this.head
     this.head = this.tail
@@ -35,23 +34,23 @@ Queue.prototype.shift = function(){
 
 /**
  * Insert a new item at the front of the queue.
- * 
+ *
  * @param {x} item
  * @return {this}
  */
 
 Queue.prototype.unshift = function(item){
-	if (this.index === 0) {
-		this.head.unshift(item)
-		this.headLength++
-	} else this.head[--this.index] = item
+  if (this.index === 0) {
+    this.head.unshift(item)
+    this.headLength++
+  } else this.head[--this.index] = item
   this.length++
   return this
 }
 
 /**
  * Push a new item on the end of the queue.
- * 
+ *
  * @param {x} item
  * @return {this}
  */
@@ -63,41 +62,14 @@ Queue.prototype.push = function(item){
 }
 
 /**
- * remove all instances of `value` from the queue
- * 
- * @param {x} value
- * @return {Boolean}
- */
-
-Queue.prototype.remove = function(value){
-	var a = remove(this.head, value, this.index)
-	var b = remove(this.tail, value, 0)
-	if (a || b) {
-		this.length -= a + b 
-		this.headLength = this.head.length
-		return true
-	}
-	return false
-}
-
-function remove(arr, value, i){
-	var removed = 0
-	while (i < arr.length) {
-		if (arr[i] === value) {
-			arr.splice(i, 1)
-			removed++
-		} else i++
-	}
-	return removed
-}
-
-/**
  * for JSON.stringify
- * 
+ *
  * @return {Array}
  * @api private
  */
 
 Queue.prototype.toJSON = function(){
-	return this.head.slice(this.index).concat(this.tail)
+  return this.head.slice(this.index).concat(this.tail)
 }
+
+module.exports = Queue
