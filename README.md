@@ -9,41 +9,30 @@ Internally it uses two arrays and cycles them and uses counters so that the `.sh
 ## Usage
 
 ```js
-var Queue = require('fastqueue');
+var Queue = require('fastqueue')
+var q = new Queue
 
-var q = new Queue;
-q.push(1);
-q.push(2);
-q.push(3);
-var i = 4;
-while (q.length > 0) {
-  console.log(q.length, q.shift());
-  q.unshift(i++);
-  console.log(q.length, q.shift());
-  q.push(i++);
-  console.log(q.length, q.shift());
-}
+q.length // => 0
+q.push(1)
+q.push(2)
+q.push(3)
+q.length // => 3
+q.toJSON() // => [1,2,3]
+q.shift() // => 1
+q.unshift(1)
+q.toJSON() // => [1,2,3]
 ```
 
 ## API
-
-  - [Queue.shift()](#queueshift)
-  - [Queue.unshift()](#queueunshiftitemx)
-  - [Queue.push()](#queuepushitemx)
-  - [Queue.remove()](#queueremovevaluex)
 
 ### Queue.shift()
 
   Get an item from the front of the queue
 
-### Queue.unshift(item:x)
+### Queue.unshift(item)
 
-  Insert a new item at the front of the queue.
+  Insert `item` at the front of the queue
 
-### Queue.push(item:x)
+### Queue.push(item)
 
-  Push a new item on the end of the queue.
-
-### Queue.remove(value:x)
-
-  remove all instances of `value` from the queue
+  Insert `item` to the end of the queue
