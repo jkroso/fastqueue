@@ -1,22 +1,17 @@
-REPORTER=dot
 
 serve: node_modules
-	@node_modules/serve/bin/serve
+	@node_modules/serve/bin/serve -Slojp 0
 
 test: node_modules
-	@node_modules/mocha/bin/_mocha test/*.test.js \
-		--reporter $(REPORTER) \
-		--timeout 500 \
-		--check-leaks \
-		--bail
+	@sed "s/'fastqueue'/'.\/'/" Readme.md | node_modules/jsmd/bin/jsmd
+	@node_modules/hydro/bin/hydro test/*.test.js \
+		--formatter node_modules/hydro-dot \
+		--setup test/hydro.conf.js
 
-node_modules: component.json
-	@packin install --meta deps.json,component.json,package.json \
-		--folder node_modules \
-		--executables \
-		--no-retrace
+node_modules: package.json
+	@packin install --meta $< --folder $@
 
-clean:
-	rm -r node_modules
+bench: node_modules
+	@node_modules/b/bin/bench -i bench/implementations -c 10000000
 
-.PHONY: clean serve test
+.PHONY: serve test bench
