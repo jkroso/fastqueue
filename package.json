@@ -18,6 +18,7 @@
   "repository": "git://github.com/creationix/fastqueue.git",
   "bugs": "https://github.com/creationix/fastqueue/issues",
   "keywords": ["queue"],
+  "files": ["index.js"],
   "author": "Tim Caswell",
   "license": "MIT"
 }
